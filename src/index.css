@@ -1,0 +1,67 @@
+:root{
+  --night:#0b1026; --night2:#1b1440; --purple:#3b2a6b; --gold:#d8b36a; --gold2:#f2dca6;
+  --silver:#e8ecff; --mist:#aab4e8; --card:rgba(20,24,58,.72); --line:rgba(216,179,106,.35);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html,body,#root{margin:0;min-height:100%;background:radial-gradient(1200px 700px at 70% 0%,#2a215f 0%,#141033 45%,#070a1e 100%);color:var(--silver);font-family:"Noto Serif SC",Georgia,"Songti SC",serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.app{min-height:100dvh;position:relative;overflow-x:hidden}
+canvas.stars{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:18px 14px 40px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-size:20px;letter-spacing:.08em;color:var(--gold2)}
+.brand small{display:block;color:var(--mist);font-size:12px;letter-spacing:.18em}
+.pill{border:1px solid var(--line);background:rgba(10,14,40,.6);border-radius:999px;padding:7px 12px;font-size:14px;white-space:nowrap}
+.pill b{color:var(--gold2)}
+.card{background:linear-gradient(180deg,rgba(38,32,88,.78),rgba(16,18,52,.86));border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(8px)}
+.hero{padding:26px 20px;text-align:center;overflow:hidden;position:relative}
+.hero h1{font-size:clamp(30px,7vw,58px);margin:8px 0;line-height:1.1;color:#fff;text-shadow:0 0 24px rgba(216,179,106,.55)}
+.hero p{color:#d7dcff;line-height:1.8;max-width:640px;margin:0 auto}
+.kicker{color:var(--gold);letter-spacing:.3em;font-size:12px}
+.btn{border:1px solid var(--gold);background:linear-gradient(180deg,#e8c887,#b98a3e);color:#241a08;border-radius:999px;padding:12px 20px;font-weight:700;min-height:46px;box-shadow:0 8px 20px rgba(216,179,106,.25)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--silver);border-color:rgba(255,255,255,.35);box-shadow:none}
+.btn.small{padding:8px 14px;min-height:38px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.grid{display:grid;gap:14px}
+.grid2{grid-template-columns:1fr 1fr}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.wrap{padding:14px 10px 30px}.card{padding:14px}}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row.space{justify-content:space-between}
+.muted{color:var(--mist);line-height:1.7;font-size:14px}
+h2{margin:6px 0 10px;font-size:24px}
+h3{margin:10px 0 8px;color:var(--gold2)}
+.progress{height:10px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,#7d8cff,#d8b36a)}
+.tag{display:inline-block;border:1px solid var(--line);color:var(--gold2);border-radius:99px;padding:3px 9px;font-size:12px;margin:2px}
+.shop-scene{position:relative;border-radius:18px;min-height:300px;overflow:hidden;background:radial-gradient(circle at 30% 20%,rgba(255,220,150,.25),transparent 40%),linear-gradient(180deg,#241c56,#120e33);border:1px solid var(--line)}
+.shelf{position:absolute;left:6%;right:6%;bottom:18px;height:10px;background:#6b4a2a;border-radius:6px;box-shadow:0 6px 0 #3d2716}
+.shelf2{bottom:118px}
+.item-btn{position:absolute;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:10px;min-width:74px;text-align:center;color:#fff;backdrop-filter:blur(3px)}
+.item-btn b{display:block;font-size:13px}
+.item-btn span{font-size:11px;color:#cfd6ff}
+.item-btn.locked{opacity:.55}
+.window{position:absolute;right:12px;top:14px;width:110px;height:130px;border:3px solid #c9a35a;border-radius:60px 60px 14px 14px;background:radial-gradient(circle at 70% 30%,#fff8 0 8px,transparent 12px),linear-gradient(#1d2a66,#0b1030);overflow:hidden}
+.moon{position:absolute;width:52px;height:52px;border-radius:50%;background:#f7e9b8;box-shadow:0 0 30px #f2dca6;right:22px;top:22px}
+.candle{position:absolute;bottom:28px;font-size:26px;filter:drop-shadow(0 0 12px #ffb84d);animation:flick 2.2s infinite}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.75}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.floaty{animation:floaty 4s ease-in-out infinite}
+.fadein{animation:fadein .55s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:none}}
+.clue-dot{position:absolute;width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);background:rgba(216,179,106,.25);color:#fff;font-weight:700;box-shadow:0 0 16px rgba(216,179,106,.6)}
+.clue-dot.found{background:#2e7d5b;border-color:#8fe3b8}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.list li{border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px;background:rgba(255,255,255,.04)}
+input[type=range]{width:100%;accent-color:var(--gold)}
+select,input[type=text]{background:#12163a;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:10px;width:100%}
+.modal{position:fixed;inset:0;background:rgba(3,5,18,.78);z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:12px}
+.modal .card{width:100%;max-width:620px;max-height:88dvh;overflow:auto}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:30;background:#1c214f;border:1px solid var(--gold);padding:12px 18px;border-radius:99px;box-shadow:0 10px 30px #000}
+.tile{aspect-ratio:1;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:linear-gradient(135deg,#2b2a6b,#7a5aa8);display:grid;place-items:center;font-size:22px;font-weight:800;color:#fff}
+.tile.sel{outline:3px solid var(--gold)}
+.note{width:64px;height:64px;border-radius:50% 50% 50% 8px;border:2px solid #fff8;background:linear-gradient(135deg,#6a7cff,#c9a6ff);display:grid;place-items:center;font-weight:800}
+.note.lit{background:linear-gradient(135deg,#ffd978,#ff8a5c);transform:scale(1.1)}
+.rarity-普通{color:#cbd5ff}.rarity-稀有{color:#8fd8ff}.rarity-史诗{color:#d3a6ff}.rarity-传说{color:#ffd978}
